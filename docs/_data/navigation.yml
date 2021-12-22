@@ -1,0 +1,20 @@
+# main links
+main:
+  - title: "분류"
+    url: /categories/
+  - title: "태그"
+    url: /tags/
+  - title: "아카이브"
+    url: /archive/
+  - title: "나는?"
+    url: /about/
+
+# - title: "Quick-Start Guide"
+#  url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
+
+# - title: "Sample Posts"
+#   url: /year-archive/
+# - title: "Sample Collections"
+#   url: /collection-archive/
+# - title: "Sitemap"
+#   url: /sitemap/
