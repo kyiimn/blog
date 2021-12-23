@@ -75,7 +75,7 @@ exclude:
   - README
   - tmp
   - banner.js
-  - minimal_mistakes-jekyll.gemspec
+  - minimal-mistakes-jekyll.gemspec
   - package-lock.json
 
 keep_files:
@@ -117,7 +117,6 @@ plugins:
   - jekyll-feed
   - jekyll-include-cache
   - jekyll-archives
-  - jekyll-redirect-from
 
 jekyll-archives:
   enabled:
