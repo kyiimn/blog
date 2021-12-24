@@ -152,3 +152,10 @@ defaults:
     values:
       layout: single
       author_profile: true
+
+analytics:
+  provider: "google-gtag"
+  google:
+    tracking_id: "G-V1JWDPTD45"
+    anonymize_ip: false
+
