@@ -18,47 +18,43 @@ btrfs의 subvolume은 기본적으로 Posix 파일트리(디렉터리)이지만 
 
 ## Subvolume 생성하기
 1. 파일시스템이 btrfs인 파티션을 마운트
-{% highlight bash %}
+```
 # mount -t btrfs /dev/sdb1 /data
-{% endhighlight %}
-
+```
 2. Subvolume 생성
-{% highlight bash %}
+```
 # btrfs subvolume create /data/download-by-scott
 # btrfs subvolume create /data/download-by-tiger
 # btrfs subvolume create /data/download-by-lion
 # btrfs subvolume create /data/download-by-orion
-{% endhighlight %}
-
+```
 3. 생성된 Subvolume 확인
-{% highlight bash %}
+```
 # btrfs subvolume list /data
 ID 258 gen 12 top level 5 path download-by-scott
 ID 259 gen 12 top level 5 path download-by-tiger
 ID 260 gen 12 top level 5 path download-by-lion
 ID 261 gen 12 top level 5 path download-by-orion
-{% endhighlight %}
+```
 
 ## Subvolume을 특정사용자에게 할당하기
-{% highlight bash %}
+```
 # chown scott /data/download-by-scott
 # chown tiger /data/download-by-tiger
 # chown lion /data/download-by-lion
 # chown orion /data/download-by-orion
-{% endhighlight %}
-
+```
 ## 마운트하기
-{% highlight bash %}
+```
 # mount -o subvolid=258 /dev/sdb1 /home/scott/Downloads
 # mount -o subvolid=259 /dev/sdb1 /home/tiger/Downloads
 # mount -o subvol=download-by-lion /dev/sdb1 /home/lion/Downloads
 # mount -o subvol=download-by-orion /dev/sdb1 /home/orion/Downloads
-{% endhighlight %}
-
+```
 ## fstab에 등록하기
-{% highlight bash %}
+```
 /dev/sdb1   /home/scott/Downloads   btrfs   subvol=download-by-scott    0 0
 /dev/sdb1   /home/tiger/Downloads   btrfs   subvol=download-by-tiger    0 0
 /dev/sdb1   /home/lion/Downloads   btrfs   subvolid=260    0 0
 /dev/sdb1   /home/orion/Downloads   btrfs   subvolid=261    0 0
-{% endhighlight %}
+```
