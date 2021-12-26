@@ -1,6 +1,6 @@
 ---
 layout: single
-title:  "[TIP] 안드로이드 환경에서 react-native-vector-icons 사용하기"
+title:  "[React Native] 안드로이드에서 react-native-vector-icons 사용하기"
 date:   2021-12-22 21:30:34 +0900
 categories:
  - react-native
