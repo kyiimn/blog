@@ -50,7 +50,7 @@ tag:
 ### 인터페이스 검색
 ```
 [iwd]# device list
-[iwd]# static 장치명 scan 
+[iwd]# station 장치명 scan 
 ```
 ### 네트워크 검색
 ```
@@ -95,10 +95,14 @@ UEFI 부트 방식이라면 ESP(EFI System Partition)이 별도로 필요하고 
 |/dev/sda1|EFI System Partition|512MB|
 |/dev/sda2|Linux Swap|4GB|
 |/dev/sda3|Linux File System|256GB|
+
 ## 포멧
-ESP는 반드시 FAT32로 포멧을 해야 한다.
+**(UEFI 부트)** ESP는 반드시 FAT32로 포멧을 해야 한다.
 ```
 # mkfs.vfat -F32 /dev/sda1
+```
+root 파티션을 ext4 파일시스템으로 포멧한다.
+```
 # mkfs.ext4 -j /dev/sda3
 ```
 스왑파티션은 다음과 같이 포멧한다.
@@ -110,9 +114,12 @@ ESP는 반드시 FAT32로 포멧을 해야 한다.
 ```
 # swapon /dev/sda2
 ```
-root 파티션과 ESP를 마운트 한다.
+root 파티션을 마운트한다.
 ```
 # mount /dev/sda3 /mnt
+```
+**(UEFI 부트)** ESP는 root 파티션의 /boot 디렉터리에 마운트 한다.
+```
 # mkdir /mnt/boot
 # mount /dev/sda1 /mnt/boot
 ```
@@ -204,11 +211,11 @@ passwd 사용자명
 # EDITOR=vim visudo
 ```
 ```
-%wheel ALL=(ALL) ALL            # 이 부분을 찾아 코멘트표시 제거
+%wheel ALL=(ALL) ALL            # 이 부분을 찾아 코멘트 제거
 ```
 ## 부트매니저 설치
 기본적으로 [grub](https://archlinux.org/packages/core/x86_64/grub/)와 systemd-boot를 사용할 수 있는데, 여기서는 grub를 설치하는 것으로 하겠다.<br>
-먼저 패키지를 설치한다.
+먼저 **grub** 패키지를 설치한다.
 ```
 # pacman -S grub
 ```
@@ -216,7 +223,7 @@ passwd 사용자명
 ```
 # pacman -S grub efibootmgr
 ```
-실제 **grub**를 시스템에 설치한다.
+실제 **grub** 부트로더를 시스템에 설치한다.
  - BIOS 부트 방식
 ```
 # grub-install --target=i386-pc /dev/sda
