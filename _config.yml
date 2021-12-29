@@ -1,86 +1,31 @@
-#minimal_mistakes_skin: "dark"
-
-locale: "ko-KR"
-title: "DE[V]BLOG"
-title_separator: "|"
-subtitle: "개발일기"
-name: "Taylor Kim"
-description: "십수년 개발을 해오며 남긴 기록들" 
+title: "de[v]blog"
 url: "https://kyiimn.github.io"
 baseurl: "/blog"
-masthead_title: "DE[V]BLOG"
-breadcrumbs: true
-words_per_minute: 200
 date_format: "%Y-%m-%d %H:%M"
 search: true
 show_dir_listing: false
+
+timezone: Asia/Seoul
+
+jekyll_timeago:
+  depth: 1
 
 comments:
   provider: "disqus"
   disqus:
     shortname: "kyiimn-github-io"
 
-author:
-  name: "Taylor Kim"
-  avatar: "/assets/images/profile/YIN.jpg"
-  bio: "컨텐츠와 관련된 분야에서 개발을 하고 있습니다.<br>웹환경의 무한한 가능성을 믿고 있고, 오픈소스가 우리를 구원해줄꺼라 믿고 있습니다."
-  location: "Seoul, Republic of Korea"
-  email: "kyiimn (at) gmail.com"
-  links:
-    - label: "Facebook"
-      icon: "fab fa-fw fa-facebook-square"
-      url: "https://www.facebook.com/kyiimn"
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/kyiimn"
+defaults:
+  - scope:
+      path: "_posts"
+      type: "posts"
+    values:
+      layout: 'post'
+      comments: true
+      share: true
+      tagline: true
 
-footer:
-  links:
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"
-      url: mailto:kyiimn@gmail.com
-    - label: "Facebook"
-      icon: "fab fa-fw fa-facebook-square"
-      url: "https://www.facebook.com/kyiimn"
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/kyiimn"
-    - label: "GitLab"
-      icon: "fab fa-fw fa-gitlab"
-
-include:
-  - .htaccess
-  - _pages
-
-exclude:
-  - vendor
-  - .asset-cache
-  - .bundle
-  - .jekyll-assets-cache
-  - .sass-cache
-  - assets/js/plugins
-  - assets/js/_main.js
-  - assets/js/vendor
-  - Capfile
-  - CHANGELOG
-  - config
-  - Gemfile
-  - Gruntfile.js
-  - gulpfile.js
-  - LICENSE
-  - log
-  - node_modules
-  - package.json
-  - Rakefile
-  - README
-  - tmp
-  - banner.js
-  - minimal-mistakes-jekyll.gemspec
-  - package-lock.json
-
-keep_files:
-  - .git
-  - .svn
+permalink: /posts/:title:output_ext
 
 encoding: "utf-8"
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
@@ -90,6 +35,15 @@ highlighter: rouge
 lsi: false
 excerpt_separator: "\n\n"
 incremental: false
+
+pagination:
+  enabled: true
+  per_page: 8
+  permalink: /:num/
+  title: ':title'
+  limit: 0
+  sort_field: 'date'
+  sort_reverse: true
 
 kramdown:
   input: GFM
@@ -101,17 +55,8 @@ kramdown:
   smart_quotes: lsquo,rsquo,ldquo,rdquo
   enable_coderay: false
 
-sass:
-  sass_dir: _sass
-  style: compressed
-
-permalink: /:categories/:title/
-paginate: 5
-paginate_path: /page:num/
-timezone: Asia/Seoul
-
 plugins:
-  - jekyll-paginate
+  - jekyll-paginate-v2
   - jekyll-sitemap
   - jekyll-gist
   - jekyll-feed
@@ -130,32 +75,12 @@ compress_html:
   ignore:
     envs: development
 
-defaults:
-  - scope:
-      path: "_posts"
-      type: posts
-    values:
-      layout: single
-      author_profile: true
-      read_time: true
-      comments: true
-      share: true
-      related: true
-      popular: true
-      show_date: true
-      toc: true
-      toc_sticky: true
-      tagline: true
-  - scope:
-      path: "_pages"
-      type: pages
-    values:
-      layout: single
-      author_profile: true
-
 analytics:
   provider: "google-gtag"
   google:
     tracking_id: "G-V1JWDPTD45"
     anonymize_ip: false
 
+exclude:
+  - LICENSE
+  - README.md

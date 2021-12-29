@@ -1,0 +1,42 @@
+---
+layout: default
+---
+{% assign date_format = site.date_format | default: "%B %-d, %Y" %}
+
+<h2>{{ page.title }} posts:</h2>
+
+{% if page.archive_link %}
+<a class="noline" href="{{ './topics' | relative_url }}">[ view by topic ]</a>
+<a class="noline" href="{{ './tags' | relative_url }}">[ view by tags ]</a>
+{% endif %}
+
+{% if paginator %}
+  {% assign posts = paginator.posts %}
+{% else %}
+  {% assign posts = site.posts %}
+{% endif %}
+
+{% if posts.size > 0 %}
+<ul class="narrow">
+  {% for post in posts %}
+  <li>
+    <h2><a class="noline mono" href="{{ post.url | relative_url }}">{{ post.title | downcase }}</a></h2>
+        <div class="subtext">{{ post.date | date: date_format }} | 
+        {% for cat in post.categories %}<span class="kinda-red">{{ cat }}{% if forloop.last %}{% else %}, {% endif %}</span>
+        {% endfor %}</div>
+
+    {{ post.excerpt | markdownify | strip_html | truncate: 160 }}
+    <hr>
+  </li>
+  {% endfor %}
+</ul>
+
+{% include paginator.html %}
+
+{% include poweredby.html %}
+{% else %}
+<div class="container" style="text-align: center;">
+  <h1><strong>Posts not found :(</strong></h1>
+  <p>The requested posts could not be found.</p>
+</div>
+{% endif %}

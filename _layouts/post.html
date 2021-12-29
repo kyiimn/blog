@@ -1,0 +1,31 @@
+---
+layout: default
+---
+{% assign date_format = site.date_format | default: "%B %-d, %Y" %}
+<div class='entry'>
+<h1 class="center">{{ page.title | downcase }}</h1>
+<div class="center">
+    <div class="subtext">{{ page.date | date: date_format }} | 
+        {% for cat in page.categories %}<a class="noline" href="{{ '/topics' | relative_url }}#{{ cat }}"><span class="kinda-red">{{ cat }}</a>{% if forloop.last %}{% else %}, {% endif %}</span>
+        {% endfor %}</div>
+</div>
+
+{{ content }}
+
+{% if page.tagline and page.tag.size > 1 %}
+<small>tags:
+    {% for cat in page.tag %}<a class="noline" href="{{ '/tags' | relative_url }}#{{ cat }}"><span class="yellow">[{{ cat }}]</span></a> {% endfor %}
+</small>
+{% endif %}
+
+{% if site.comments.provider and page.comments %}
+{% include comments.html %}
+{% endif %}
+
+{% comment %}<!-- only show related on a post page when `related: true` -->{% endcomment %}
+
+<div class="eop">~ end of post ~</div>
+
+</div>
+
+{% include poweredby.html %}
