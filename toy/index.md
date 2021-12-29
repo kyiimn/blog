@@ -4,5 +4,5 @@ title: toy
 permalink: /toy/
 pagination:
   enabled: true
-  category: toy
+  category: 'toy'
 ---
