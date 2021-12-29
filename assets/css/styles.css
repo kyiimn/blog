@@ -43,10 +43,24 @@ h1{
 	font-family: 'Roboto Mono', "Nanum Gothic";
 }
 
+h1.post-title{
+	font-size: 1.5rem;
+}
+
+h1.post-title::after{
+	content: ':';
+}
+
 h2{
 	margin: 15px 0px;
 	padding: 10px 0;
 	font-family: 'Roboto Mono', "Nanum Gothic";
+}
+
+h2.site-title{
+	margin: .83em 0;
+	margin-right: auto;
+	padding: 0;
 }
 
 pre.highlight{
@@ -265,7 +279,7 @@ hr{
 		justify-content: flex-start;
 	}
 
-	.header h1{
+	.header h2{
 		width: 100%;
 		font-size: 1.8rem;
 	}
@@ -291,6 +305,10 @@ hr{
 
 	h1{
 		font-size: 1.5rem;
+	}
+
+	h1.post-title{
+		font-size: 1.3rem;
 	}
 
 	h2{

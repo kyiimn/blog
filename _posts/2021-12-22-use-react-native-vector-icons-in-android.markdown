@@ -8,12 +8,12 @@ tag:
  - react-native
  - react-native-vector-icons
 ---
-# 설치
+## 설치
 ```
 $ yarn add react-native-vector-icons
 ```
 
-# 안드로이드 설정
+## 안드로이드 설정
 android/app/build.gradle 에 다음을 추가 
 ```
 apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"

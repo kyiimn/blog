@@ -1,6 +1,6 @@
 ---
 layout: default
-title: de[v]blog
+title: home
 ---
 
 <h2 class="mono">hi, i am taylor, kim.</h2>

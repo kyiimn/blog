@@ -3,7 +3,7 @@ layout: default
 ---
 {% assign date_format = site.date_format | default: "%B %-d, %Y" %}
 
-<h2>{{ page.title }} posts:</h2>
+<h1 class="post-title">{{ page.title }} posts</h1>
 
 {% if page.archive_link %}
 <a class="noline" href="{{ './topics' | relative_url }}">[ view by topic ]</a>
@@ -36,7 +36,7 @@ layout: default
 {% include poweredby.html %}
 {% else %}
 <div class="container" style="text-align: center;">
-  <h1><strong>Posts not found :(</strong></h1>
+  <h2><strong>Posts not found :(</strong></h2>
   <p>The requested posts could not be found.</p>
 </div>
 {% endif %}
