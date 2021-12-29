@@ -77,6 +77,12 @@ pre.highlight{
 	padding: 1rem;
 	margin-left: 2rem;
 }
+
+.header ul{
+	display: flex;
+	padding: 0;
+    margin: 0;
+}
 /* end of header css */
 
 .entry {
@@ -255,8 +261,8 @@ hr{
 
 	/* header css */
 	.header{
-		flex-direction: row;
-		justify-content: space-evenly;
+		flex-direction: column;
+		justify-content: flex-start;
 	}
 
 	.header h1{
@@ -272,7 +278,14 @@ hr{
 		padding-bottom: 1rem;
 	}
 
-	.header > a{
+	.header ul{
+		display: block;
+		white-space: nowrap;
+		overflow: auto hidden;
+		width: 100%;
+	}
+
+	.header ul a{
 		font-size: 1.2rem;
 	}
 
@@ -325,6 +338,12 @@ hr{
 	ul.narrow{
 		padding-right: 10px;
 		padding-left: 20px;
+	}
+
+	.right span{
+		display: inline-block;
+		width: 100%;
+		overflow: auto hidden;
 	}
 }
 
