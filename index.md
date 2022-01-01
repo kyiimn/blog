@@ -17,13 +17,14 @@ view <a class="noline" href="{{ '/about' | relative_url }}">[about me]</a>
 ## recent posts:
 
 <ul class="mono">
-{% for post in site.posts limit:5 %}
-	{% if post.category == 'random' %}
-		<li><a class="noline" href="{{ post.url | relative_url }}">[r] {{ post.title | downcase }}</a></li>
-	{% else %}
+{% assign cnt = 0 %}
+{% for post in site.posts %}
+	{% if cnt > 4 or post.categories contains 'life' or post.categories contains 'toy %}
+    {% continue %}
+  {% else %}
+    {% assign cnt = cnt + 1 %}
 		<li><a class="noline" href="{{ post.url | relative_url }}">{{ post.title | downcase }}</a></li>
 	{% endif %}
-	
 {% endfor %}
 <a class="noline" href="{{ '/posts' | relative_url }}">see more..</a>
 </ul>
