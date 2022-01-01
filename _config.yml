@@ -50,6 +50,7 @@ incremental: false
 
 pagination:
   enabled: true
+  debug: true
   per_page: 8
   permalink: /:num/
   title: ':title'
@@ -74,6 +75,8 @@ plugins:
   - jekyll-feed
   - jekyll-include-cache
   - jekyll-seo-tag
+
+gems: [jekyll-paginate-v2]
 
 category_archive:
   type: liquid
