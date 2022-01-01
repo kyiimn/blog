@@ -19,10 +19,10 @@ view <a class="noline" href="{{ '/about' | relative_url }}">[about me]</a>
 <ul class="mono">
 {% assign cnt = 0 %}
 {% for post in site.posts %}
-	{% if cnt > 4 or post.categories contains 'life' or post.categories contains 'toy %}
+	{% if cnt > 4 or post.categories contains 'life' or post.categories contains 'toy' %}
     {% continue %}
   {% else %}
-    {% assign cnt = cnt + 1 %}
+    {% assign cnt = cnt | plus: 1 %}
 		<li><a class="noline" href="{{ post.url | relative_url }}">{{ post.title | downcase }}</a></li>
 	{% endif %}
 {% endfor %}
