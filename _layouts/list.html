@@ -19,6 +19,9 @@ layout: default
 {% if posts.size > 0 %}
 <ul class="narrow">
   {% for post in posts %}
+  {% if page.title != 'life' and post.categories contains 'life' %}
+  {% continue %}
+  {% endif %}
   <li>
     <h2><a class="noline mono" href="{{ post.url | relative_url }}">{{ post.title | downcase }}</a></h2>
         <div class="subtext">{{ post.date | date: date_format }} | 
