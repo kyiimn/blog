@@ -5,6 +5,18 @@ date_format: "%Y-%m-%d %H:%M"
 search: true
 show_dir_listing: false
 
+social:
+  name: Kim Yin
+  links:
+    - https://github.com/kyiimn
+    - https://facebook.com/kyiimn
+    - https://www.linkedin.com/in/%EC%9D%B8-%EA%B9%80-9ab62767/
+    - https://instagram.com/kyiimn
+
+locale: ko_KR
+author: Kim Yin <kyiimn@gmail.com>
+description: 개발을 하며 겪은 여러가지 일이나 자료에 대해 기록하고 있다.
+
 timezone: Asia/Seoul
 
 jekyll_timeago:
@@ -61,6 +73,7 @@ plugins:
   - jekyll-gist
   - jekyll-feed
   - jekyll-include-cache
+  - jekyll-seo-tag
 
 category_archive:
   type: liquid
