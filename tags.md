@@ -4,7 +4,7 @@ title: tags
 ---
 {% assign date_format = site.date_format | default: "%B %-d, %Y" %}
 
-<h2>blog posts: tag-wise </h2>
+<h1 class="post-title">tag-wise</h1>
 
 <a class="noline" href="{{ './posts' | relative_url }}">[ view list ]</a>
 

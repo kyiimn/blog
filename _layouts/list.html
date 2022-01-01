@@ -24,7 +24,22 @@ layout: default
   {% endif %}
 {% endif %}
 
-{% if posts.size > 0 %}
+{% assign posttotal = 0 %}
+{% for post in posts %}
+  {% if page.title != 'life' and post.categories contains 'life' %}
+    {% continue %}
+  {% else %}
+    {% if page.pagination.category %}
+      {% if post.categories contains page.pagination.category %}
+      {% else %}
+        {% continue %}
+      {% endif %}
+    {% endif %}
+  {% endif %}
+  {% assign posttotal = posttotal | plus: 1 %}
+{% endfor %}
+
+{% if posttotal > 0 %}
 <ul class="narrow">
   {% for post in posts %}
   {% if page.title != 'life' and post.categories contains 'life' %}
