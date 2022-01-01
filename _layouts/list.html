@@ -14,17 +14,32 @@ layout: default
   {% assign posts = paginator.posts %}
 {% else %}
   {% assign posts = site.posts %}
+  {% if page.pagination.category %}
+    {% for post in posts %}
+      {% if post.categories contains page.pagination.category %}
+      {% else %}
+        {% assign post.except = true %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
 {% endif %}
 
 {% if posts.size > 0 %}
 <ul class="narrow">
   {% for post in posts %}
   {% if page.title != 'life' and post.categories contains 'life' %}
-  {% continue %}
+    {% continue %}
+  {% else %}
+    {% if page.pagination.category %}
+      {% if post.categories contains page.pagination.category %}
+      {% else %}
+        {% continue %}
+      {% endif %}
+    {% endif %}
   {% endif %}
   <li>
     <h2><a class="noline mono" href="{{ post.url | relative_url }}">{{ post.title | downcase }}</a></h2>
-        <div class="subtext">{{ post.date | date: date_format }} | 
+        <div class="subtext">{{ post.date | date: date_format }} |
         {% for cat in post.categories %}<span class="kinda-red">{{ cat }}{% if forloop.last %}{% else %}, {% endif %}</span>
         {% endfor %}</div>
 

@@ -37,7 +37,7 @@ defaults:
       share: true
       tagline: true
 
-permalink: /posts/:title:output_ext
+permalink: /posts/:year/:title:output_ext
 
 encoding: "utf-8"
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
@@ -69,14 +69,12 @@ kramdown:
   enable_coderay: false
 
 plugins:
-  - jekyll-paginate-v2
   - jekyll-sitemap
   - jekyll-gist
   - jekyll-feed
   - jekyll-include-cache
   - jekyll-seo-tag
-
-gems: [jekyll-paginate-v2]
+  - jekyll-paginate-v2
 
 category_archive:
   type: liquid
