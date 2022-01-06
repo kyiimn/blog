@@ -17,7 +17,7 @@ tag:
 
 ### 현재 설정된 원격 저장소 확인
 ```
-$ git remove -v
+$ git remote -v
 origin  https://github.com/kyiimn/myproject.git (fetch)
 origin  https://github.com/kyiimn/myproject.git (push)
 ```
@@ -26,7 +26,7 @@ origin  https://github.com/kyiimn/myproject.git (push)
 ```
 $ git remote set-url origin https://gitlab.com/kyiimn/myproject.git
 
-$ git remove -v
+$ git remote -v
 origin  https://gitlab.com/kyiimn/myproject.git (fetch)
 origin  https://gitlab.com/kyiimn/myproject.git (push)
 ```
