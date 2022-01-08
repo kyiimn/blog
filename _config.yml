@@ -75,6 +75,16 @@ plugins:
   - jekyll-include-cache
   - jekyll-seo-tag
   - jekyll-paginate-v2
+  - jekyll-archives
+
+jekyll-archives:
+  enabled:
+    - categories
+    - tags
+  layout: archive
+  permalinks:
+    tag: '/tag/:name/'
+    category: '/category/:name/'
 
 category_archive:
   type: liquid
@@ -98,3 +108,4 @@ analytics:
 exclude:
   - LICENSE
   - README.md
+  - backup

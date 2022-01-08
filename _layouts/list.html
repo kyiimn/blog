@@ -6,11 +6,16 @@ layout: default
 <h1 class="post-title">{{ page.title }} posts</h1>
 
 {% if page.archive_link %}
+  {% if page.posts %}
+  {% else %}
 <a class="noline" href="{{ './topics' | relative_url }}">[ view by topic ]</a>
 <a class="noline" href="{{ './tags' | relative_url }}">[ view by tags ]</a>
+  {% endif %}
 {% endif %}
 
-{% if paginator %}
+{% if page.posts %}
+  {% assign posts = page.posts %}
+{% elsif paginator %}
   {% assign posts = paginator.posts %}
 {% else %}
   {% assign posts = site.posts %}
