@@ -1,0 +1,16 @@
+---
+layout: default
+---
+{% assign date_format = site.date_format | default: "%B %-d, %Y" %}
+
+<h1 class="post-title">{{ page.title }} posts</h1>
+
+<section>
+  <ul>
+  {% for post in page.posts %}
+    <li><a class="noline mono" href="{{ post.url | relative_url }}">{{ post.title }}</a> - <i>{{ post.date | date: date_format }}</i></li>
+  {% endfor %}
+  </ul>
+</section>
+
+<div class="right"> this blog uses <a class="noline" target="_blank" href="https://jekyllrb.com/">jekyll</a></div>
