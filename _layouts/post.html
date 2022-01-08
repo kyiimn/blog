@@ -6,7 +6,7 @@ layout: default
 <h1 class="center">{{ page.title | downcase }}</h1>
 <div class="center">
     <div class="subtext">{{ page.date | date: date_format }} | 
-        {% for cat in page.categories %}<a class="noline" href="{{ '/topics' | relative_url }}#{{ cat }}"><span class="kinda-red">{{ cat }}</a>{% if forloop.last %}{% else %}, {% endif %}</span>
+        {% for cat in page.categories %}<a class="noline" href="{{ '/category' | relative_url }}/{{ cat }}"><span class="kinda-red">{{ cat }}</a>{% if forloop.last %}{% else %}, {% endif %}</span>
         {% endfor %}</div>
 </div>
 
@@ -14,7 +14,7 @@ layout: default
 
 {% if page.tagline and page.tag.size > 1 %}
 <small>tags:
-    {% for cat in page.tag %}<a class="noline" href="{{ '/tags' | relative_url }}#{{ cat }}"><span class="yellow">[{{ cat }}]</span></a> {% endfor %}
+    {% for cat in page.tag %}<a class="noline" href="{{ '/tag' | relative_url }}/{{ cat }}"><span class="yellow">[{{ cat }}]</span></a> {% endfor %}
 </small>
 {% endif %}
 
