@@ -20,10 +20,10 @@ const ExamComp = () => {
   };
   ... 중략 ...
 
-  return (
+  return <>
     ... 중략 ...
     <input type="text" ref={ref} ...>
-  );
+  </>;
 }
 export default ExamComp;
 ```
@@ -45,10 +45,10 @@ const ExamComp = forwardRef((props, ref) => {
       inputRef.current.blur();
     },
   }));
-  return (
+  return <>
     ... 중략 ...
     <input type="text" ref={inputRef} ...>
-  );
+  </>;
 });
 export default ExamComp;
 ```
@@ -62,10 +62,10 @@ const App = () => {
   }
   ... 중략 ...
 
-  return (
+  return <>
     ... 중략 ...
     <ExamComp ref={ref} ...>
-  );
+  </>;
 }
 export default App;
 ```
